@@ -1,0 +1,7 @@
+flask==3.0.0
+trimesh==4.1.0
+numpy==1.26.0
+pillow==10.1.0
+transformers==4.36.0
+torch==2.1.0
+sentencepiece==0.1.99

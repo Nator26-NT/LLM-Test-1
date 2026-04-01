@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexEra AI 3D Asset Pipeline</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔧 NexEra AI 3D Training Content</h1>
+            <p>Turn text or images into interactive 3D models with educational summaries</p>
+        </header>
+
+        <div class="input-panel">
+            <form id="generate-form" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="description">Text Description:</label>
+                    <input type="text" id="description" name="description" placeholder="e.g., a yellow hard hat">
+                </div>
+                <div class="form-group">
+                    <label>OR Upload Image:</label>
+                    <input type="file" id="image" name="image" accept="image/*">
+                </div>
+                <button type="submit">Generate 3D Model</button>
+            </form>
+            <div id="loading" class="hidden">⏳ Generating model...</div>
+            <div id="error" class="hidden error"></div>
+        </div>
+
+        <div class="result-panel">
+            <div class="summary" id="summary"></div>
+            <div class="viewer-container">
+                <canvas id="three-canvas"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.128.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.128.0/examples/jsm/"
+            }
+        }
+    </script>
+    <script src="{{ url_for('static', filename='script.js') }}" type="module"></script>
+</body>
+</html>
